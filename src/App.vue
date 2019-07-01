@@ -34,6 +34,7 @@ export default {
   }
   .v-btn {
     text-transform: initial !important;
+    box-shadow: none !important;
   }
   .theme--light.application {
     color: #170C3A !important;
@@ -41,6 +42,9 @@ export default {
   .v-input__slot {
     background-color: #EBEAED !important;
     box-shadow: none !important;
+  }
+  .v-card {
+    box-shadow: 0px 5px 7px rgba(0,0,0,0.05) !important;
   }
 </style>
 
