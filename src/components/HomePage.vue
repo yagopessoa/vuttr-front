@@ -23,6 +23,8 @@
             solo
             class="input-text mr-4 mb-4"
             style="max-width: 286px;"
+            v-model="searchParameter"
+            @input="loadTools()"
           ></v-text-field>
 
           <div class="toggle-container mb-4">
@@ -32,6 +34,8 @@
               :sync="true"
               :labels="false"
               class="pr-2"
+              v-model="searchTagsOnly"
+              @change="loadTools()"
             />
             <p class="subheading mt-1 mb-0">Search in tags only</p>
           </div>
@@ -227,7 +231,6 @@
 
 <script>
   const axios = require('axios')
-  // const apiPath = 'http://localhost:3000'
   const apiPath = process.env.VUE_APP_API_PATH
   export default {
     mounted() {
@@ -238,6 +241,8 @@
       mounted: false,
       apiError: false,
       tools: [],
+      searchTagsOnly: false,
+      searchParameter: '',
       loading: true,
       removeDialog: false,
       selectedTool: {
@@ -261,7 +266,7 @@
       loadTools() {
         this.loading = true
         axios
-          .get(apiPath + '/tools')
+          .get(apiPath + (this.searchTagsOnly ? '/tools?tags_like=' : '/tools?q=') + this.searchParameter)
           .then(response => {
             this.tools = response.data
             this.apiError = false
@@ -309,7 +314,7 @@
             console.log(err)
           })
         
-      },
+      }
     },
     computed: {
       formTitleClasses() {
