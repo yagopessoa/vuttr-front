@@ -52,10 +52,15 @@
             <v-icon class="primary--text pa-2 mt-2" large>cloud_off</v-icon><br/>
             Oh no! It seems we couldn't connect to our server x(
           </p>
-          <p class="pa-2 pt-4 mt-4 text-xs-center" v-if="tools.length == 0 && !apiError">
-            Ops. We have no tools to show :( <br/>
-            You can add a new one by clicking on the "+ Add" button!
-          </p>
+          <div class="pa-2 pt-4 mt-4 text-xs-center" v-if="tools.length == 0 && !apiError">
+            <div v-if="searchParameter != ''">
+              No tools matching your search parameters. Try remodel your search.
+            </div>
+            <div v-else>
+              Ops. We have no tools to show :( <br/>
+              You can add a new one by clicking on the "+ Add" button!
+            </div>
+          </div>
           <v-card class="mt-2" v-for="tool in tools" :key="tool.id">
             <v-card-title primary-title>
               <a :href="tool.link" target="_blank"><h3 class="headline primary--text">{{ tool.title }}</h3></a>
