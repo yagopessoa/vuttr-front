@@ -46,5 +46,8 @@ export default {
   .v-card {
     box-shadow: 0px 5px 7px rgba(0,0,0,0.05) !important;
   }
+  .body-2 {
+    font-weight: bold !important;
+  }
 </style>
 
