@@ -22,6 +22,10 @@ Ela foi construída utilizando-se [Vue.js](https://vuejs.org/) com o auxilio da 
 3. Inicie a aplicação em modo de desenvolvimento com `npm run serve`.
 4. Navegue até http://localhost:8080/ e veja a aplicação rodando.
 
+### Testes
+
+- Para rodar os testes, execute o comando: `npm run test:unit`
+
 ### Build para produção
 
 1. Lembre-se de colocar o caminho correto da API (caso ela esteja hospedada em algum endereço e não local) na variável de ambiente `VUE_APP_API_PATH` no arquivo `.env` na raiz do projeto.
